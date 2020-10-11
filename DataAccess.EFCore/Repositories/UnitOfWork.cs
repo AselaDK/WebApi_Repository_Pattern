@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataAccess.EFCore.Repositories
 {
-    class UnitOfWork: IUnitOfWork
+    public class UnitOfWork: IUnitOfWork
     {
         private readonly ApplicationContext _context;
         public UnitOfWork(ApplicationContext context)

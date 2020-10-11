@@ -43,6 +43,10 @@ namespace WebApi_Repository_Pattern
             services.AddTransient<IDeveloperRepository, DeveloperRepository>();
             services.AddTransient<IProjectRepository, ProjectRepository>();
             //#endregion
+
+            // register IUnitOfWork interface
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
