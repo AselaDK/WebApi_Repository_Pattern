@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.EFCore.Repositories
 {
-    class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly ApplicationContext _context;
         public GenericRepository(ApplicationContext context)

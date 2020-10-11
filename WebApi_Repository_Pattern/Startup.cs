@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.EFCore;
+using DataAccess.EFCore.Repositories;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +36,13 @@ namespace WebApi_Repository_Pattern
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
+
+            // register Interfaces (with repositories) in startup.cs
+            //#region Repositories
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<IDeveloperRepository, DeveloperRepository>();
+            services.AddTransient<IProjectRepository, ProjectRepository>();
+            //#endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

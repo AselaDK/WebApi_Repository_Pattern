@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.EFCore.Repositories
 {
-    class DeveloperRepository : GenericRepository<Developer>, IDeveloperRepository
+    public class DeveloperRepository : GenericRepository<Developer>, IDeveloperRepository
     {
         public DeveloperRepository(ApplicationContext context) : base(context)
         {
